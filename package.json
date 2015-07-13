@@ -5,6 +5,7 @@
   "author": "William Saulnier <lego6245@gmail.com>",
   "description": "Because we're terrible and need to do things our way.",
   "dependencies": {
+    "coffee-script": "^1.9.3",
     "hubot": "^2.13.2",
     "hubot-azure-scripts": "^0.1.6",
     "hubot-diagnostics": "0.0.1",
