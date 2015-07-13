@@ -38,7 +38,7 @@ module.exports = (robot) ->
         cardsingle = cardsingle.replace '$', ""
       robot.http("https://omgvamp-hearthstone-v1.p.mashape.com/cards/search/#{prepURI(cardsingle)}?collectible=1")
         .header('Accept', 'application/json')
-        .header('X-Mashape-Key', '7jhdOejrwSmshuAbMyfLQYOFWfPWp1wJPGnjsnTGijqIykxJtq') # process.env.HUBOT_MASHAPE_KEY
+        .header('X-Mashape-Key', process.env.HUBOT_MASHAPE_KEY) # process.env.HUBOT_MASHAPE_KEY
         .get() (err, response, body) ->
           if err
             res.envelope.room = res.envelope.user.name
