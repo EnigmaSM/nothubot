@@ -123,7 +123,7 @@ cp "$DEPLOYMENT_TARGET/node_modules/hubot/bin/hubot" "$DEPLOYMENT_TARGET/node_mo
 
 # 5. Create App_Data from brain data
 
-if [ ! -d "$DEPLOYMENT_TARGET/App_Data" ]
+if [ ! -d "$DEPLOYMENT_TARGET/App_Data" ]; then
   mkdir "$DEPLOYMENT_TARGET/App_Data"
 fi
 
