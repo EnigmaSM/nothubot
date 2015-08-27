@@ -3,7 +3,7 @@
 #
 # Commands:
 #   {{CARD_NAME}} - Returns an image of the specified Hearthstone card called CARD_NAME
-#   {{$CARD_NAME}} - Returns the animated / gold image of the specified Hearthstone card called CARD_NAME
+#   {{*CARD_NAME}} - Returns the animated / gold image of the specified Hearthstone card called CARD_NAME
 #
 # Notes:
 #   The script uses the heartstone api exposed by mashery.
@@ -33,9 +33,9 @@ module.exports = (robot) ->
       setGold = false
       cardsingle = cardname.replace '\{\{', ""
       cardsingle = cardsingle.replace '\}\}', ""
-      if cardsingle[0] is '$'
+      if cardsingle[0] is '*'
         setGold = true
-        cardsingle = cardsingle.replace '$', ""
+        cardsingle = cardsingle.replace '*', ""
       robot.http("https://omgvamp-hearthstone-v1.p.mashape.com/cards/search/#{prepURI(cardsingle)}?collectible=1")
         .header('Accept', 'application/json')
         .header('X-Mashape-Key', process.env.HUBOT_MASHAPE_KEY) # process.env.HUBOT_MASHAPE_KEY
