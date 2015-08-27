@@ -11,9 +11,10 @@
 #   lego6245
 
 module.exports = (robot) ->
-  robot.hear /(^|\s)(\$[a-z\d-]+)/g, (res) ->
+  robot.hear /(^|\s)(\$[a-zA-Z\d-]+)/g, (res) ->
     for stockname in res.match
-      stocksingle = stockname.replace '$', ""
+      stocksingle = stockname.replace "$", ""
+      stocksingle = stocksingle.replace ' ', ""
       robot.http("http://dev.markitondemand.com/Api/v2/Quote/json?symbol=#{stocksingle}")
         .header('Accept', 'application/json')
         .get() (err, response, body) ->
@@ -43,7 +44,7 @@ module.exports = (robot) ->
             if(data.Change < 0)
               isGain = "loss"
             textResponse = """
-              #{data.Name} (#{data.Symbol}) is trading at #{data.LastPrice}, which is a #{isGain} of #{data.Change} on the trading day.
+              #{data.Name} (#{data.Symbol}) is trading at #{data.LastPrice}, which is a #{isGain} of #{data.Change.toFixed(2)} on the trading day.
             """
             res.send textResponse
             console.log """
