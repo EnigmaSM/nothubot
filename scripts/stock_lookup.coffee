@@ -38,7 +38,7 @@ module.exports = (robot) ->
           catch error
            res.send "Ran into an error parsing JSON :("
            return
-          if data.Status = "SUCCESS"
+          if data.Status
             isGain = "gain"
             if(data.Change < 0)
               isGain = "loss"
