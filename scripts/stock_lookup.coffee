@@ -44,12 +44,12 @@ module.exports = (robot) ->
               isGain = "loss"
             textResponse = """
               #{data.Name} (#{data.Symbol}) is trading at #{data.LastPrice}, which is a #{isGain} of #{data.Change} on the trading day.
-              """
-              res.send textResponse
-              console.log """
-                found a stock by name #{data.Symbol}
-              """
-              return
+            """
+            res.send textResponse
+            console.log """
+            found a stock by name #{data.Symbol}
+            """
+            return
           else
             res.envelope.room = res.envelope.user.name
             textResponse = """
