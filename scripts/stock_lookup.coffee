@@ -11,7 +11,7 @@
 #   lego6245
 
 module.exports = (robot) ->
-  robot.hear /(^|\s)($[a-z\d-]+)/g, (res) ->
+  robot.hear /(^|\s)(\$[a-z\d-]+)/g, (res) ->
     for stockname in res.match
       stocksingle = stockname.replace '$', ""
       robot.http("http://dev.markitondemand.com/Api/v2/Quote/json?symbol=#{stocksingle}")
