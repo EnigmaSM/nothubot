@@ -1,4 +1,14 @@
-
+# Description:
+#   Looks up a stock designated by $STOCK_SYMBOL
+#
+# Commands:
+#   $STOCK_SYMBOL -> Looks up a stock by symbol.
+#
+# Notes:
+#   The script uses the http://dev.markitondemand.com/ API
+#
+# Author:
+#   lego6245
 
 module.exports = (robot) ->
   robot.hear /(^|\s)($[a-z\d-]+)/g, (res) ->
