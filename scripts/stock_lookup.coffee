@@ -44,7 +44,7 @@ module.exports = (robot) ->
             if(data.Change < 0)
               isGain = "loss"
             textResponse = """
-              #{data.Name} (#{data.Symbol}) is trading at #{data.LastPrice}, which is a #{isGain} of #{data.Change.toFixed(2)} on the trading day.
+              #{data.Name} (#{data.Symbol}) is trading at #{data.LastPrice}, which is a #{isGain} of #{data.Change.toFixed(2)} (#{data.ChangePercent.toFixed(2)}%) on the trading day.
             """
             res.send textResponse
             console.log """
