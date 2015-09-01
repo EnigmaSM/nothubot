@@ -11,7 +11,7 @@
 #   lego6245
 
 module.exports = (robot) ->
-  robot.hear /(^|\s)(\$[a-zA-Z\d-]+)/g, (res) ->
+  robot.hear /(^|\s)(\$[a-zA-Z-]+)/g, (res) ->
     for stockname in res.match
       stocksingle = stockname.replace "$", ""
       stocksingle = stocksingle.replace ' ', ""
