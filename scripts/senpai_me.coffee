@@ -12,7 +12,7 @@
 
 module.exports = (robot) ->
   robot.hear /http/i, (res) ->
-    if res.envelope.room is "s-senpai"
+    if res.envelope.room is "shitposting"
       splits = res.match.input.split(" ")
       if splits.length is 1
         if ! robot.brain.data.senpais
