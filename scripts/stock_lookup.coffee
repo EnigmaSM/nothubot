@@ -15,7 +15,7 @@ module.exports = (robot) ->
     for stockname in res.match
       stocksingle = stockname.replace "$", ""
       stocksingle = stocksingle.replace ' ', ""
-      robot.http("http://dev.markitondemand.com/Api/v2/Quote/json?symbol=#{stocksingle}")
+      robot.http("http://dev.markitondemand.com/MODApis/Api/v2/Quote/json?symbol=#{stocksingle}")
         .header('Accept', 'application/json')
         .get() (err, response, body) ->
           if err
